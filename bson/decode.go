@@ -194,7 +194,7 @@ func (d *decoder) readDocTo(out reflect.Value) {
 			panic(err)
 		}
 		fieldsMap = sinfo.FieldsMap
-		out.Set(sinfo.Zero)
+		// out.Set(sinfo.Zero) // 反序列化前不需置空结构体的成员变量
 		if sinfo.InlineMap != -1 {
 			inlineMap = out.Field(sinfo.InlineMap)
 			if !inlineMap.IsNil() && inlineMap.Len() > 0 {
